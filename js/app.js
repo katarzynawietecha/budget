@@ -17,10 +17,19 @@ new Vue({
   data: {
     title: "Budget calculator",
     budget: budget,
-    singlePosition: {
+    position: {
       newName: "",
       newAmount: "",
-      flow: ""
+      newFlow: "plus" //default
+    }
+  },
+  methods: {
+    createPosition: function(){
+      this.budget.push({
+        name: this.position.newName,
+        amount: this.position.newAmount,
+        flow: this.position.newFlow
+      })
     }
   }
 })

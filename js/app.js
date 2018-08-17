@@ -1,14 +1,14 @@
 const budget = [
-  // {
-  //   name: "Salary",
-  //   amount: 1000,
-  //   flow: "plus"
-  // },
-  // {
-  //   name: "Payment for room",
-  //   amount: 300,
-  //   flow: "minus"
-  // }
+//   {
+//     name: "Salary",
+//     amount: 1000,
+//     flow: "plus"
+//   },
+//   {
+//     name: "Payment for room",
+//     amount: 300,
+//     flow: "minus"
+//   }
 ]
 
 

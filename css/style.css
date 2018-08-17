@@ -4,3 +4,7 @@
     }
 }
 
+.singleElement span:hover  {
+    color: #000;
+    cursor: pointer;
+}

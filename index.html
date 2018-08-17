@@ -17,12 +17,15 @@
       <!-- Creating new position -->
       <div class="form-group container text-center mt-5 mb-4">
         <input v-model="position.newName" type="text" placeholder="Name of income or cost" />
-        <input v-model="position.newAmount" type="number" placeholder="Amount"/>
+        <input v-model="position.newAmount" type="number" min="0.01" step="0.01" placeholder="Amount"/>
         <select v-model="position.newFlow">
           <option value="plus">+</option>
           <option value="minus">-</option>
         </select>
         <button @click="createPosition" class="btn btn-dark btn-sm">Add new position</button>
+        <div v-if="error" class="row justify-content-center">
+            <div class="alert alert-danger mt-2 mb-0 col-sm-9 col-md-6">Error. All fields are required</div>
+        </div>
       </div>
 
       <!-- Budget visualization -->
@@ -33,7 +36,7 @@
                v-if="item.flow === 'plus'"
                class="row bg-success text-white m-1">
            <div class="col-xs-6 col-sm-8 p-2">{{ item.name }}</div>
-           <div class="col-xs-6 col-sm-4 p-2"> {{ item.amount }} EUR</div>
+           <div class="col-xs-6 col-sm-4 p-2 text-right"> {{ item.amount.toFixed(2) }} EUR</div>
           </div>
 
         </div>
@@ -44,7 +47,7 @@
                v-if="item.flow === 'minus'"
                class="row bg-danger text-white m-1">
             <div class="col-xs-6 col-sm-8 p-2">{{ item.name }}</div>
-            <div class="col-xs-6 col-sm-4 p-2"> {{ item.amount }} EUR</div>
+            <div class="col-xs-6 col-sm-4 p-2 text-right"> {{ item.amount.toFixed(2) }} EUR</div>
           </div>
         </div>
       </div>
@@ -53,7 +56,7 @@
       <div class="col-xs-12">
         <div class="row p-2">
           <div class="col-xs-6 col-sm-8 p-2">Total</div>
-          <div class="col-xs-6 col-sm-4 p-2 text-md-right"> {{ total }} EUR</div>
+          <div class="col-xs-6 col-sm-4 p-2 text-md-right"> {{ total.toFixed(2) }} EUR</div>
         </div>
       </div>
 

@@ -22,24 +22,29 @@ new Vue({
       newAmount: "",
       newFlow: "plus" //default
     },
-    total: 0
+    total: 0,
+    error: false
   },
   methods: {
     createPosition: function(){
-      this.budget.push({
-        name: this.position.newName,
-        amount: this.position.newAmount,
-        flow: this.position.newFlow
-      })
-      if(this.position.newFlow === "plus"){
-        this.total += this.position.newAmount;
+      if((this.position.newName === "") || (this.position.newAmount === "")){
+        this.error = true;
       }else{
-        this.total -= this.position.newAmount;
+        this.budget.push({
+          name: this.position.newName,
+          amount: parseFloat(this.position.newAmount),
+          flow: this.position.newFlow
+        })
+        if(this.position.newFlow === "plus"){
+          this.total += parseFloat(this.position.newAmount);
+        }else{
+          this.total -= parseFloat(this.position.newAmount);
+        }
+        //Cleaning fields
+        this.position.newName = "";
+        this.position.newAmount = "";
+        this.position.newFlow = "plus";
       }
-      //Cleaning fields
-      this.position.newName = "";
-      this.position.newAmount = "";
-      this.position.newFlow = "plus";
     }
   }
 })

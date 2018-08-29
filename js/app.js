@@ -49,6 +49,7 @@ new Vue({
         this.position.newName = "";
         this.position.newAmount = "";
         this.position.newFlow = "plus";
+        this.error = false;
       }
     },
     removePosition: function(index){

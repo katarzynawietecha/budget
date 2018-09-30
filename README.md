@@ -2,7 +2,7 @@
 
 **Basic informations**
 
--project in progress-
+An application allows counting the income and expenses. Calculates the sum, allows you to delete items.
 
 
 **License**
